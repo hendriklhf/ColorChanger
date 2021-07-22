@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace ColorChanger
+﻿namespace ColorChanger
 {
-    class Program
+    public static class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            Console.WriteLine("Hello World!");
+
         }
     }
 }
