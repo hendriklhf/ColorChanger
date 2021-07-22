@@ -7,7 +7,7 @@ In order to use this you will have to build the project first.<br />
 Any easy way would be to use Visual Studio.<br />
 When executing, the executable and the .json file have to be in the same directory.
 ## Settings
-Insert your username and and OAuth token into the ```Settings.json```.
+Insert your username and OAuth token into the ```Settings.json```.
 ```json
 "AccountSettings": {
   "Username": "",
