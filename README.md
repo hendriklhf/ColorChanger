@@ -25,5 +25,4 @@ If you only want it to work is specific channels, you can just create an array o
 ```
 You can also change the color array in the settings to your custom colors.
 ## Issues
-If no console output shows, just restart the program.<br />
-This program will probably only work on Windows.
+If no console output shows, just restart the program.
