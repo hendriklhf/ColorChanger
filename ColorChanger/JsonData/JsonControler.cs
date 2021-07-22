@@ -19,6 +19,10 @@ namespace ColorChanger.JsonData
             {
                 Settings.AccountSettings.Channels = GetChannelsFromChatterinoSettings();
             }
+            if (!Settings.AccountSettings.Channels.Contains(Settings.AccountSettings.Username))
+            {
+                Settings.AccountSettings.Channels.Add(Settings.AccountSettings.Username);
+            }
         }
 
         public List<string> GetChannelsFromChatterinoSettings()
