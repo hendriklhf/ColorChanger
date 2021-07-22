@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using ColorChanger.JsonData;
+using System;
 using System.Text.RegularExpressions;
-using System.Threading;
 using TwitchLib.Client;
 using TwitchLib.Client.Enums;
 using TwitchLib.Client.Events;
 using TwitchLib.Client.Models;
 using TwitchLib.Communication.Clients;
 using TwitchLib.Communication.Enums;
-using TwitchLib.Communication.Events;
 using TwitchLib.Communication.Models;
-using ColorChanger.JsonData;
 
 namespace ColorChanger.Twitch
 {
@@ -41,9 +37,10 @@ namespace ColorChanger.Twitch
         }
 
         private int _index = 0;
-        
+
         public ChatClient()
         {
+            Console.Title = $"Color Changer by Strbhlfe - Connected as {JsonControler.Settings.AccountSettings.Username}";
             ConnectionCredentials = new(JsonControler.Settings.AccountSettings.Username, JsonControler.Settings.AccountSettings.OAuthToken);
             ClientOptions = new()
             {

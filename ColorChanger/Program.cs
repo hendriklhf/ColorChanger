@@ -7,7 +7,7 @@ namespace ColorChanger
         private static void Main()
         {
             _ = new ChatClient();
-            while(true)
+            while (true)
             {
             }
         }
