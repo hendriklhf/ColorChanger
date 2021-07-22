@@ -14,8 +14,8 @@ namespace ColorChanger.JsonData
 
         public JsonControler()
         {
-            Settings = JsonSerializer.Deserialize<Settings>(Resources.Settings);
-            if (Settings.AccountSettings.Channels.Count == 0)
+            Settings = JsonSerializer.Deserialize<Settings>(File.ReadAllText(Resources.SettingsPath));
+            if (IsNullOrEmpty(Settings.AccountSettings.Channels))
             {
                 Settings.AccountSettings.Channels = GetChannelsFromChatterinoSettings();
             }
@@ -55,6 +55,11 @@ namespace ColorChanger.JsonData
                 }
             }
             return result.Distinct().ToList();
+        }
+
+        public bool IsNullOrEmpty(List<string> channels)
+        {
+            return channels == null || channels.Count == 0;
         }
     }
 }
