@@ -1,4 +1,5 @@
 ﻿using ColorChanger.Twitch;
+using System;
 
 namespace ColorChanger
 {
@@ -9,6 +10,7 @@ namespace ColorChanger
             _ = new ChatClient();
             while (true)
             {
+                Console.ReadLine();
             }
         }
     }
