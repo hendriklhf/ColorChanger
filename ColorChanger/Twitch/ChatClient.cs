@@ -21,15 +21,13 @@ namespace ColorChanger.Twitch
 
         public TcpClient TcpClient { get; }
 
-        public JsonController JsonController { get; } = new();
-
         public static int ColorIndex
         {
             get => _index;
             private set
             {
                 _index = value;
-                if (_index == JsonController.AppSettings.AccountSettings.Channels.Count)
+                if (_index == JsonController.AppSettings.Account.Channels.Count)
                 {
                     _index = 0;
                 }
@@ -40,7 +38,7 @@ namespace ColorChanger.Twitch
 
         public ChatClient()
         {
-            ConnectionCredentials = new(JsonController.AppSettings.AccountSettings.Username, JsonController.AppSettings.AccountSettings.OAuthToken);
+            ConnectionCredentials = new(JsonController.AppSettings.Account.Username, JsonController.AppSettings.Account.OAuthToken);
             ClientOptions = new()
             {
                 ClientType = ClientType.Chat,
@@ -52,21 +50,19 @@ namespace ColorChanger.Twitch
             {
                 AutoReListenOnException = true
             };
-            TwitchClient.Initialize(ConnectionCredentials, JsonController.AppSettings.AccountSettings.Channels);
+            TwitchClient.Initialize(ConnectionCredentials, JsonController.AppSettings.Account.Channels);
             TwitchClient.OnMessageReceived += OnMessageReceived;
-            TwitchClient.OnConnected += (sender, e) => Console.WriteLine("Client connected!");
-            TwitchClient.OnJoinedChannel += (sender, e) => Console.WriteLine($"Joined channel {e.Channel}");
             TwitchClient.Connect();
         }
 
         private void OnMessageReceived(object sender, OnMessageReceivedArgs e)
         {
-            if (e.ChatMessage.Username == JsonController.AppSettings.AccountSettings.Username.ToLower() && !Regex.IsMatch(e.ChatMessage.Message, @"color\s#[0-9A-Fa-f]{6}"))
+            if (e.ChatMessage.Username == JsonController.AppSettings.Account.Username.ToLower() && !Regex.IsMatch(e.ChatMessage.Message, @"color\s#[0-9A-Fa-f]{6}"))
             {
                 try
                 {
                     string color = JsonController.AppSettings.Colors[ColorIndex];
-                    TwitchClient.SendMessage(JsonController.AppSettings.AccountSettings.Username, $".color {color}");
+                    TwitchClient.SendMessage(JsonController.AppSettings.Account.Username, $".color {color}");
                     ColorIndex++;
                 }
                 catch (Exception)
