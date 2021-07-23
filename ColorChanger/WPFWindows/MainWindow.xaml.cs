@@ -2,7 +2,7 @@
 using ColorChanger.Twitch;
 using System.Windows;
 
-namespace ColorChanger
+namespace ColorChanger.WPFWindows
 {
     public partial class MainWindow : Window
     {
@@ -20,7 +20,7 @@ namespace ColorChanger
         {
             if (string.IsNullOrEmpty(JsonController.AppSettings.Account.Username) || string.IsNullOrEmpty(JsonController.AppSettings.Account.OAuthToken))
             {
-                //login
+                new LoginWindow().ShowDialog();
             }
             _chatClient = new();
         }

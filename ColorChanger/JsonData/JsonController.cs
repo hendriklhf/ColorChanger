@@ -8,7 +8,7 @@ using System.Text.Json;
 
 namespace ColorChanger.JsonData
 {
-    public class JsonController
+    public static class JsonController
     {
         public static AppSettings AppSettings { get; set; }
 
@@ -24,6 +24,11 @@ namespace ColorChanger.JsonData
                 List<string> ownChannel = new() { AppSettings.Account.Username };
                 AppSettings.Account.Channels = ownChannel.Concat(AppSettings.Account.Channels).ToList();
             }
+        }
+
+        public static void SaveSettings()
+        {
+
         }
 
         private static List<string> GetChannelsFromChatterinoSettings()
