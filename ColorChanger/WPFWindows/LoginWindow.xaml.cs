@@ -20,6 +20,7 @@ namespace ColorChanger.WPFWindows
                 {
                     JsonController.AppSettings.Account.Username = tbUsername.Text.Trim().ToLower();
                     JsonController.AppSettings.Account.OAuthToken = tbToken.Text.Trim().ToLower();
+                    JsonController.AppSettings.Account.Channels = new() { tbUsername.Text.ToLower() };
                     JsonController.SaveSettings();
                     Close();
                 }

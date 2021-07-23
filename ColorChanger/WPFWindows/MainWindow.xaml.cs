@@ -12,7 +12,6 @@ namespace ColorChanger.WPFWindows
         public MainWindow()
         {
             JsonController.LoadSettings();
-            JsonController.SaveSettings();
             SetUpChatClient();
             AddEvents();
             InitializeComponent();
@@ -22,10 +21,7 @@ namespace ColorChanger.WPFWindows
         {
             if (string.IsNullOrEmpty(JsonController.AppSettings.Account.Username) || string.IsNullOrEmpty(JsonController.AppSettings.Account.OAuthToken))
             {
-                if (new LoginWindow().ShowDialog() != true)
-                {
-                    Environment.Exit(0);
-                }
+                _ = new LoginWindow().ShowDialog();
             }
             _chatClient = new();
         }
