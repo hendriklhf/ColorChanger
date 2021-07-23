@@ -21,6 +21,8 @@ namespace ColorChanger.Twitch
 
         public TcpClient TcpClient { get; }
 
+        public event EventHandler<OnColorChangedArgs> OnColorChanged;
+
         public static int ColorIndex
         {
             get => _index;
@@ -64,6 +66,7 @@ namespace ColorChanger.Twitch
                     string color = JsonController.AppSettings.Colors[ColorIndex];
                     TwitchClient.SendMessage(JsonController.AppSettings.Account.Username, $".color {color}");
                     ColorIndex++;
+                    OnColorChanged.Invoke(this, new(color));
                 }
                 catch (Exception)
                 {

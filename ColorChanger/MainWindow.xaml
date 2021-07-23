@@ -11,7 +11,7 @@
             <ColumnDefinition Width="44*"/>
             <ColumnDefinition Width="81*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="labelLogs" Content="Logs:" FontSize="18" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Width="52" Foreground="White"/>
+        <Label x:Name="labelLog" Content="Log:" FontSize="18" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Width="52" Foreground="White"/>
         <ListBox x:Name="listBoxLogs" Margin="15, 30, 15, 15" Background="#FF151515" Foreground="White" FontSize="14" BorderBrush="{x:Null}"/>
     </Grid>
 </Window>

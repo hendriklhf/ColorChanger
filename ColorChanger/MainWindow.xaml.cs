@@ -11,6 +11,7 @@ namespace ColorChanger
         public MainWindow()
         {
             JsonController.LoadSettings();
+            AddEvents();
             InitializeComponent();
             SetUpChatClient();
         }
@@ -21,6 +22,19 @@ namespace ColorChanger
             {
                 //login
             }
+            if (JsonController.AppSettings.AutoConnect)
+            {
+                _chatClient ??= new();
+            }
+        }
+
+        private void AddEvents()
+        {
+            _chatClient.TwitchClient.OnConnected += (sender, e) => listBoxLogs.Items.Add("Connected");
+            _chatClient.TwitchClient.OnDisconnected += (sender, e) => listBoxLogs.Items.Add("Disconnected");
+            _chatClient.TwitchClient.OnJoinedChannel += (sender, e) => listBoxLogs.Items.Add($"Joined {e.Channel}");
+            _chatClient.OnColorChanged += (sender, e) => listBoxLogs.Items.Add($"Color changed to {e.Color}");
         }
     }
+
 }
