@@ -63,7 +63,7 @@ namespace ColorChanger.Twitch
 
         private void OnMessageReceived(object sender, OnMessageReceivedArgs e)
         {
-            if (e.ChatMessage.Username == JsonController.AppSettings.Account.Username.ToLower() && !Regex.IsMatch(e.ChatMessage.Message, @"color\s#[0-9A-Fa-f]{6}"))
+            if (e.ChatMessage.Username == JsonController.AppSettings.Account.Username.ToLower() && !Regex.IsMatch(e.ChatMessage.Message, @"color\s#[0-9A-Fa-f]{6}$"))
             {
                 try
                 {

@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using ColorChanger.JsonData;
+using System;
+using System.Text.RegularExpressions;
+using System.Windows;
 
 namespace ColorChanger.WPFWindows
 {
@@ -11,10 +14,29 @@ namespace ColorChanger.WPFWindows
 
         private void btnLogIn_Click(object sender, RoutedEventArgs e)
         {
+            if (Regex.IsMatch(tbUsername.Text.Trim(), @"^\w+$"))
+            {
+                if (Regex.IsMatch(tbToken.Text.Trim(), @"^oauth:\w{30}$", RegexOptions.IgnoreCase))
+                {
+                    JsonController.AppSettings.Account.Username = tbUsername.Text.Trim().ToLower();
+                    JsonController.AppSettings.Account.OAuthToken = tbToken.Text.Trim().ToLower();
+                    JsonController.SaveSettings();
+                    Close();
+                }
+                else
+                {
+                    _ = MessageBox.Show("The given token is invalid, please try another!", "Invalid OAuth token", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                _ = MessageBox.Show("The given username is invalid, please try another!", "Invalid username", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
+            Environment.Exit(0);
         }
     }
 }

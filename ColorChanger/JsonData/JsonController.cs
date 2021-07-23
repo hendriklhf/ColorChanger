@@ -15,15 +15,6 @@ namespace ColorChanger.JsonData
         public static void LoadSettings()
         {
             AppSettings = JsonSerializer.Deserialize<AppSettings>(File.ReadAllText(Resources.AppSettingsPath));
-            if (IsNullOrEmpty(AppSettings.Account.Channels))
-            {
-                AppSettings.Account.Channels = GetChannelsFromChatterinoSettings();
-            }
-            if (!AppSettings.Account.Channels.Contains(AppSettings.Account.Username))
-            {
-                List<string> ownChannel = new() { AppSettings.Account.Username };
-                AppSettings.Account.Channels = ownChannel.Concat(AppSettings.Account.Channels).ToList();
-            }
         }
 
         public static void SaveSettings()

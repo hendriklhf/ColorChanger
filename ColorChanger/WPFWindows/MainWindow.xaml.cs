@@ -1,5 +1,6 @@
 ﻿using ColorChanger.JsonData;
 using ColorChanger.Twitch;
+using System;
 using System.Windows;
 
 namespace ColorChanger.WPFWindows
@@ -21,7 +22,10 @@ namespace ColorChanger.WPFWindows
         {
             if (string.IsNullOrEmpty(JsonController.AppSettings.Account.Username) || string.IsNullOrEmpty(JsonController.AppSettings.Account.OAuthToken))
             {
-                _ = new LoginWindow().ShowDialog();
+                if (new LoginWindow().ShowDialog() != true)
+                {
+                    Environment.Exit(0);
+                }
             }
             _chatClient = new();
         }
