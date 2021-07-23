@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColorChanger.WPFWindows"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Log In"
+        Height="166"
+        Width="426"
+        WindowStyle="ToolWindow"
+        ResizeMode="NoResize">
+    <Grid Background="#FF252525">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="26*"/>
+            <ColumnDefinition Width="79*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="19*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="labelUsername" Content="Username:" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="66"/>
+        <Label x:Name="labelOAuthToken" Content="OAuth Token:" HorizontalAlignment="Left" Margin="15,45,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="81"/>
+        <TextBox x:Name="textBoxUsername" HorizontalAlignment="Left" Margin="10,15,0,10" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" UndoLimit="50" Grid.Column="1" Height="18" BorderBrush="{x:Null}"/>
+        <TextBox HorizontalAlignment="Left" Margin="10,50,0,10" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" UndoLimit="200" Grid.Column="1" Height="18" BorderBrush="{x:Null}"/>
+        <Button x:Name="btnLogIn" Content="Log in" HorizontalAlignment="Left" Margin="52,6,10,0" VerticalAlignment="Top" Width="116" BorderBrush="{x:Null}" Foreground="White" Background="#FF464646" Click="btnLogIn_Click" Grid.Row="1" Grid.ColumnSpan="2" Height="20"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="155,6,10,0" VerticalAlignment="Top" RenderTransformOrigin="0.912,0.067" Width="116" BorderBrush="{x:Null}" Foreground="White" Background="#FF464646" Click="btnCancel_Click" Grid.Row="1" Grid.Column="1" Height="20"/>
+
     </Grid>
 </Window>

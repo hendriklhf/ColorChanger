@@ -5,13 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColorChanger.WPFWindows"
         mc:Ignorable="d"
-        Title="ColorChanger by Strbhlfe" Height="600" Width="875">
+        Title="ColorChanger by Strbhlfe"
+        Height="600"
+        Width="875"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen">
     <Grid Background="#FF252525">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="44*"/>
             <ColumnDefinition Width="81*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="labelLog" Content="Log:" FontSize="18" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Width="52" Foreground="White"/>
-        <ListBox x:Name="listBoxLogs" Margin="15, 30, 15, 15" Background="#FF151515" Foreground="White" FontSize="14" BorderBrush="{x:Null}"/>
+        <ListBox x:Name="listBoxLogs" Margin="15, 15, 15, 15" Background="#FF151515" Foreground="White" FontSize="14" BorderBrush="{x:Null}"/>
     </Grid>
 </Window>
