@@ -8,27 +8,27 @@ using System.Text.Json;
 
 namespace ColorChanger.JsonData
 {
-    public class JsonControler
+    public class JsonController
     {
-        public Settings Settings { get; set; }
+        public AppSettings AppSettings { get; set; }
 
-        public JsonControler()
+        public JsonController()
         {
-            Settings = JsonSerializer.Deserialize<Settings>(File.ReadAllText(Resources.SettingsPath));
-            if (IsNullOrEmpty(Settings.AccountSettings.Channels))
+            AppSettings = JsonSerializer.Deserialize<AppSettings>(File.ReadAllText(Resources.AppSettingsPath));
+            if (IsNullOrEmpty(AppSettings.AccountSettings.Channels))
             {
-                Settings.AccountSettings.Channels = GetChannelsFromChatterinoSettings();
+                AppSettings.AccountSettings.Channels = GetChannelsFromChatterinoSettings();
             }
-            if (!Settings.AccountSettings.Channels.Contains(Settings.AccountSettings.Username))
+            if (!AppSettings.AccountSettings.Channels.Contains(AppSettings.AccountSettings.Username))
             {
-                Settings.AccountSettings.Channels.Add(Settings.AccountSettings.Username);
+                AppSettings.AccountSettings.Channels.Add(AppSettings.AccountSettings.Username);
             }
         }
 
-        public List<string> GetChannelsFromChatterinoSettings()
+        private List<string> GetChannelsFromChatterinoSettings()
         {
             List<string> result = new();
-            string chatterinoSettingsDirectory = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\Chatterino2\\Settings\\window-layout.json";
+            string chatterinoSettingsDirectory = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\Chatterino2\\AppSettings\\window-layout.json";
             JsonElement chatterinoTabs = JsonSerializer.Deserialize<JsonElement>(File.ReadAllText(chatterinoSettingsDirectory)).GetProperty("windows")[0].GetProperty("tabs");
             for (int i = 0; i < chatterinoTabs.GetArrayLength(); i++)
             {
@@ -61,7 +61,7 @@ namespace ColorChanger.JsonData
             return result.Distinct().ToList();
         }
 
-        public bool IsNullOrEmpty(List<string> channels)
+        private bool IsNullOrEmpty(List<string> channels)
         {
             return channels == null || channels.Count == 0;
         }

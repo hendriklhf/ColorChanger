@@ -21,7 +21,7 @@ namespace ColorChanger.Twitch
 
         public TcpClient TcpClient { get; }
 
-        public JsonControler JsonControler { get; } = new();
+        public JsonController JsonControler { get; } = new();
 
         public int ColorIndex
         {
@@ -29,7 +29,7 @@ namespace ColorChanger.Twitch
             private set
             {
                 _index = value;
-                if (_index == JsonControler.Settings.AccountSettings.Channels.Count)
+                if (_index == JsonControler.AppSettings.AccountSettings.Channels.Count)
                 {
                     _index = 0;
                 }
@@ -40,8 +40,8 @@ namespace ColorChanger.Twitch
 
         public ChatClient()
         {
-            Console.Title = $"Color Changer by Strbhlfe - Connected as {JsonControler.Settings.AccountSettings.Username}";
-            ConnectionCredentials = new(JsonControler.Settings.AccountSettings.Username, JsonControler.Settings.AccountSettings.OAuthToken);
+            Console.Title = $"Color Changer by Strbhlfe - Connected as {JsonControler.AppSettings.AccountSettings.Username}";
+            ConnectionCredentials = new(JsonControler.AppSettings.AccountSettings.Username, JsonControler.AppSettings.AccountSettings.OAuthToken);
             ClientOptions = new()
             {
                 ClientType = ClientType.Chat,
@@ -53,7 +53,7 @@ namespace ColorChanger.Twitch
             {
                 AutoReListenOnException = true
             };
-            TwitchClient.Initialize(ConnectionCredentials, JsonControler.Settings.AccountSettings.Channels);
+            TwitchClient.Initialize(ConnectionCredentials, JsonControler.AppSettings.AccountSettings.Channels);
             TwitchClient.OnMessageReceived += OnMessageReceived;
             TwitchClient.OnConnected += (sender, e) => Console.WriteLine("Client connected!");
             TwitchClient.OnJoinedChannel += (sender, e) => Console.WriteLine($"Joined channel {e.Channel}");
@@ -62,12 +62,12 @@ namespace ColorChanger.Twitch
 
         private void OnMessageReceived(object sender, OnMessageReceivedArgs e)
         {
-            if (e.ChatMessage.Username == JsonControler.Settings.AccountSettings.Username.ToLower() && !Regex.IsMatch(e.ChatMessage.Message, @"color\s#[0-9A-Fa-f]{6}"))
+            if (e.ChatMessage.Username == JsonControler.AppSettings.AccountSettings.Username.ToLower() && !Regex.IsMatch(e.ChatMessage.Message, @"color\s#[0-9A-Fa-f]{6}"))
             {
                 try
                 {
-                    string color = JsonControler.Settings.Colors[ColorIndex];
-                    TwitchClient.SendMessage(JsonControler.Settings.AccountSettings.Username, $".color {color}");
+                    string color = JsonControler.AppSettings.Colors[ColorIndex];
+                    TwitchClient.SendMessage(JsonControler.AppSettings.AccountSettings.Username, $".color {color}");
                     ColorIndex++;
                     Console.WriteLine($"Changed color to {color}");
                 }

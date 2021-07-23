@@ -61,11 +61,11 @@ namespace ColorChanger.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die ./Settings.json ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die ./AppSettings.json ähnelt.
         /// </summary>
-        internal static string SettingsPath {
+        internal static string AppSettingsPath {
             get {
-                return ResourceManager.GetString("SettingsPath", resourceCulture);
+                return ResourceManager.GetString("AppSettingsPath", resourceCulture);
             }
         }
     }
