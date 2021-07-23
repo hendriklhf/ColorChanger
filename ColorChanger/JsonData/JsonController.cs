@@ -10,25 +10,19 @@ namespace ColorChanger.JsonData
 {
     public class JsonController
     {
-        public static AppSettings AppSettings
-        {
-            get => _appSettings;
-            set => _appSettings = value;
-        }
-
-        private static AppSettings _appSettings;
+        public static AppSettings AppSettings { get; set; }
 
         public static void LoadSettings()
         {
             AppSettings = JsonSerializer.Deserialize<AppSettings>(File.ReadAllText(Resources.AppSettingsPath));
-            if (IsNullOrEmpty(AppSettings.AccountSettings.Channels))
+            if (IsNullOrEmpty(AppSettings.Account.Channels))
             {
-                AppSettings.AccountSettings.Channels = GetChannelsFromChatterinoSettings();
+                AppSettings.Account.Channels = GetChannelsFromChatterinoSettings();
             }
-            if (!AppSettings.AccountSettings.Channels.Contains(AppSettings.AccountSettings.Username))
+            if (!AppSettings.Account.Channels.Contains(AppSettings.Account.Username))
             {
-                List<string> ownChannel = new() { AppSettings.AccountSettings.Username };
-                AppSettings.AccountSettings.Channels = ownChannel.Concat(AppSettings.AccountSettings.Channels).ToList();
+                List<string> ownChannel = new() { AppSettings.Account.Username };
+                AppSettings.Account.Channels = ownChannel.Concat(AppSettings.Account.Channels).ToList();
             }
         }
 
