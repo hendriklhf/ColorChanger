@@ -28,7 +28,7 @@ namespace ColorChanger.JsonData
 
         public static void SaveSettings()
         {
-
+            File.WriteAllText(Resources.AppSettingsPath, JsonSerializer.Serialize(AppSettings, new() { WriteIndented = true }));
         }
 
         private static List<string> GetChannelsFromChatterinoSettings()
