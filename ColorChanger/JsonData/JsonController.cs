@@ -10,9 +10,15 @@ namespace ColorChanger.JsonData
 {
     public class JsonController
     {
-        public AppSettings AppSettings { get; set; }
+        public static AppSettings AppSettings
+        {
+            get => _appSettings;
+            set => _appSettings = value;
+        }
 
-        public JsonController()
+        private static AppSettings _appSettings;
+
+        public static void LoadSettings()
         {
             AppSettings = JsonSerializer.Deserialize<AppSettings>(File.ReadAllText(Resources.AppSettingsPath));
             if (IsNullOrEmpty(AppSettings.AccountSettings.Channels))
@@ -21,14 +27,15 @@ namespace ColorChanger.JsonData
             }
             if (!AppSettings.AccountSettings.Channels.Contains(AppSettings.AccountSettings.Username))
             {
-                AppSettings.AccountSettings.Channels.Add(AppSettings.AccountSettings.Username);
+                List<string> ownChannel = new() { AppSettings.AccountSettings.Username };
+                AppSettings.AccountSettings.Channels = ownChannel.Concat(AppSettings.AccountSettings.Channels).ToList();
             }
         }
 
-        private List<string> GetChannelsFromChatterinoSettings()
+        private static List<string> GetChannelsFromChatterinoSettings()
         {
             List<string> result = new();
-            string chatterinoSettingsDirectory = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\Chatterino2\\AppSettings\\window-layout.json";
+            string chatterinoSettingsDirectory = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\Chatterino2\\Settings\\window-layout.json";
             JsonElement chatterinoTabs = JsonSerializer.Deserialize<JsonElement>(File.ReadAllText(chatterinoSettingsDirectory)).GetProperty("windows")[0].GetProperty("tabs");
             for (int i = 0; i < chatterinoTabs.GetArrayLength(); i++)
             {
@@ -61,7 +68,7 @@ namespace ColorChanger.JsonData
             return result.Distinct().ToList();
         }
 
-        private bool IsNullOrEmpty(List<string> channels)
+        private static bool IsNullOrEmpty(List<string> channels)
         {
             return channels == null || channels.Count == 0;
         }

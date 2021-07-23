@@ -5,6 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColorChanger"
         mc:Ignorable="d"
-        Title="ColorChanger by Strbhlfe" Height="450" Width="800">
-    <Grid Background="#FF252525"/>
+        Title="ColorChanger by Strbhlfe" Height="600" Width="875">
+    <Grid Background="#FF252525">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="44*"/>
+            <ColumnDefinition Width="81*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Logs:" FontSize="18" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Width="52" Foreground="White"/>
+        <ListBox Margin="15, 30, 15, 15" Background="#FF151515" Foreground="White" FontSize="14" BorderBrush="{x:Null}"/>
+    </Grid>
 </Window>
