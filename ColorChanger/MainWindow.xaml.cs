@@ -11,9 +11,9 @@ namespace ColorChanger
         public MainWindow()
         {
             JsonController.LoadSettings();
+            SetUpChatClient();
             AddEvents();
             InitializeComponent();
-            SetUpChatClient();
         }
 
         private void SetUpChatClient()
@@ -22,10 +22,7 @@ namespace ColorChanger
             {
                 //login
             }
-            if (JsonController.AppSettings.AutoConnect)
-            {
-                _chatClient ??= new();
-            }
+            _chatClient = new();
         }
 
         private void AddEvents()

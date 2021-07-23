@@ -54,6 +54,10 @@ namespace ColorChanger.Twitch
             };
             TwitchClient.Initialize(ConnectionCredentials, JsonController.AppSettings.Account.Channels);
             TwitchClient.OnMessageReceived += OnMessageReceived;
+        }
+
+        public void Connect()
+        {
             TwitchClient.Connect();
         }
 
