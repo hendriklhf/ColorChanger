@@ -4,8 +4,8 @@ This program will change your Twitch chat color to another one after each messag
 # Usage
 ## Build and execution
 In order to use this you can build the project by yourself.<br />
-Any easy way would be to use Visual Studio.<br />
-Or just use the executable and JSON file in the recent release.
+An easy way would be to use Visual Studio.<br />
+Or just use the executable and JSON file in the latest release.
 ## Settings
 Insert your username and OAuth token into the ```Settings.json```.
 ```json
