@@ -17,9 +17,9 @@ namespace ColorChanger
 
         private void SetUpChatClient()
         {
-            if (string.IsNullOrEmpty(JsonController.AppSettings.AccountSettings.Username) || string.IsNullOrEmpty(JsonController.AppSettings.AccountSettings.OAuthToken))
+            if (string.IsNullOrEmpty(JsonController.AppSettings.Account.Username) || string.IsNullOrEmpty(JsonController.AppSettings.Account.OAuthToken))
             {
-                //open log in window
+                //login
             }
         }
     }
