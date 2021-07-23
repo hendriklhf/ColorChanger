@@ -2,7 +2,7 @@
 
 namespace ColorChanger.JsonData.JsonClasses
 {
-    public class AccountSettings
+    public class Account
     {
         public string Username { get; set; }
 
