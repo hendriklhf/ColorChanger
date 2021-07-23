@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="HLE" Version="1.1.0.1" />
     <PackageReference Include="TwitchLib" Version="3.2.0" />
   </ItemGroup>
 
