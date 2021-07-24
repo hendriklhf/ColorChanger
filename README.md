@@ -4,7 +4,8 @@ This program will change your Twitch chat color to another one after each messag
 # Usage
 ## Build and execution
 There are releases in this repository, but I currently don't know how to properly because I am an "unknown publisher", so the Windows Defender Smart Screen will try to stop you when starting the executable.<br />
-A safe way would be to download the repository and build it yourself with, for example, Visual Studio 2019.
+~~A safe way would be to download the repository and build it yourself with, for example, Visual Studio 2019.~~
+Currently not buildable, because the repository contains an unfinished version.
 ## Settings
 Insert your username and OAuth token into the ```Settings.json```.
 ```json
