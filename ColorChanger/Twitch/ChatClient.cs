@@ -36,7 +36,7 @@ namespace ColorChanger.Twitch
             }
         }
 
-        private static int _index = 0;
+        private static int _index;
 
         public ChatClient()
         {

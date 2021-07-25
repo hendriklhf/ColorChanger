@@ -28,12 +28,10 @@ namespace ColorChanger.JsonData
             AppSettings.Account.OAuthToken = "";
             AppSettings.Account.Channels = null;
             AppSettings.Colors = Resources.DefaultColors.Split().ToList();
-            AppSettings.AutoConnect = false;
-            AppSettings.StartWithWindows = false;
             SaveSettings();
         }
 
-        private static List<string> GetChannelsFromChatterinoSettings()
+        public static List<string> GetChannelsFromChatterinoSettings()
         {
             List<string> result = new();
             try
@@ -71,13 +69,9 @@ namespace ColorChanger.JsonData
             }
             catch (Exception)
             {
+                throw;
             }
             return result.Distinct().ToList();
-        }
-
-        private static bool IsNullOrEmpty(List<string> channels)
-        {
-            return channels == null || channels.Count == 0;
         }
     }
 }

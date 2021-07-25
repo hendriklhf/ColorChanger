@@ -36,6 +36,13 @@ namespace ColorChanger.WPFWindows
             {
                 listBoxLogs.Dispatcher.Invoke(() => listBoxLogs.Items.Add("Disconnected"));
             };
+            _chatClient.TwitchClient.OnConnectionError += (sender, e) =>
+            {
+                _chatClient.Disconnect();
+                SetUpChatClient();
+                AddEvents();
+                _chatClient.Connect();
+            };
             _chatClient.TwitchClient.OnJoinedChannel += (sender, e) =>
             {
                 listBoxLogs.Dispatcher.Invoke(() => listBoxLogs.Items.Add($"Joined channel {e.Channel}"));
@@ -50,6 +57,7 @@ namespace ColorChanger.WPFWindows
         {
             listBoxLogs.Items.Clear();
             lblUsername.Content = JsonController.AppSettings.Account.Username;
+            btnConnect.Visibility = Visibility.Visible;
         }
 
         private void btnLogOut_Click(object sender, RoutedEventArgs e)
@@ -65,15 +73,22 @@ namespace ColorChanger.WPFWindows
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
-            new SettingsWindow().Show();
+            SettingsWindow settings = new();
+            settings.Closed += (sender, e) =>
+            {
+                _chatClient.Disconnect();
+                SetUpChatClient();
+                AddEvents();
+                SetUpUI();
+                _chatClient.Connect();
+            };
+            settings.Show();
         }
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
-        }
-
-        private void btnChannelSettings_Click(object sender, RoutedEventArgs e)
-        {
+            btnConnect.Visibility = Visibility.Hidden;
+            _chatClient.Connect();
         }
     }
 }

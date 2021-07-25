@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColorChanger.WPFWindows"
         mc:Ignorable="d"
-        Title="Settings" Height="450" Width="800" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Topmost="True">
+        Title="Settings" Height="450" Width="376" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Topmost="True">
     <Grid Background="#FF252525">
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="171*"/>
+            <RowDefinition Height="22*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="lblChannels" Content="Channels" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="White" Height="26" Width="61"/>
+        <TextBox x:Name="tbChannels" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="320" Height="318" BorderBrush="{x:Null}" Background="#FF3E3E3E" Foreground="White" Grid.Row="1"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="28,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="24" Width="80" BorderBrush="{x:Null}" Foreground="White" Background="#FF464646" Click="btnCancel_Click"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="268,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="24" Width="80" BorderBrush="{x:Null}" Foreground="White" Background="#FF464646" Click="btnSave_Click"/>
+        <Button x:Name="btnRetrieveChatterinoChannels" Content="Get channels from Chatterino settings" HorizontalAlignment="Left" Margin="133,11,0,0" VerticalAlignment="Top" Height="24" Width="215" BorderBrush="{x:Null}" Background="#FF464646" Foreground="White" Click="btnRetrieveChatterinoChannels_Click"/>
+
     </Grid>
 </Window>
