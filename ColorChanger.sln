@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorChanger", "ColorChanger\ColorChanger.csproj", "{62488FF0-6D3F-4615-8773-82DA4592E663}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorChanger", "ColorChanger\ColorChanger.csproj", "{0C068EBC-175C-4ED6-8368-1B2365BA25FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{62488FF0-6D3F-4615-8773-82DA4592E663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62488FF0-6D3F-4615-8773-82DA4592E663}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62488FF0-6D3F-4615-8773-82DA4592E663}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62488FF0-6D3F-4615-8773-82DA4592E663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C068EBC-175C-4ED6-8368-1B2365BA25FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C068EBC-175C-4ED6-8368-1B2365BA25FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C068EBC-175C-4ED6-8368-1B2365BA25FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C068EBC-175C-4ED6-8368-1B2365BA25FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

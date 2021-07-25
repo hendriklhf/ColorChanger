@@ -1,16 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
-    <UseWPF>true</UseWPF>
-    <StartupObject>ColorChanger.App</StartupObject>
-    <Version>2.0.0</Version>
-    <ApplicationIcon>Resources\Gayge.ico</ApplicationIcon>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HLE" Version="1.1.0.2" />
     <PackageReference Include="TwitchLib" Version="3.2.0" />
   </ItemGroup>
 
@@ -19,11 +15,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Properties\Settings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -35,17 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="AppSettings.json">
+    <None Update="Settings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>

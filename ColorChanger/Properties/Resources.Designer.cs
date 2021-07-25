@@ -61,20 +61,11 @@ namespace ColorChanger.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die ./AppSettings.json ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die ./Settings.json ähnelt.
         /// </summary>
-        internal static string AppSettingsPath {
+        internal static string SettingsPath {
             get {
-                return ResourceManager.GetString("AppSettingsPath", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die #FF0000 #FF005A #FF00B4 #F000FF #9600FF #3C00FF #001EFF #0078FF #00CDFF #00FFD7 #00FF7D #00FF23 #37FF00 #91FF00 #EBFF00 #FFBE00 #FF6400 #FF0F00 ähnelt.
-        /// </summary>
-        internal static string DefaultColors {
-            get {
-                return ResourceManager.GetString("DefaultColors", resourceCulture);
+                return ResourceManager.GetString("SettingsPath", resourceCulture);
             }
         }
     }

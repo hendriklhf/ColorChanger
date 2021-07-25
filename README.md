@@ -3,8 +3,9 @@ This program will change your Twitch chat color to another one after each messag
 
 # Usage
 ## Build and execution
-There are releases in this repository, but I currently don't know how to properly because I am an "unknown publisher", so the Windows Defender Smart Screen will try to stop you when starting the executable.<br />
-A safe way would be to download the code of the release and build it yourself with, for example, Visual Studio 2019.<br />
+In order to use this you can build the project by yourself.<br />
+Any easy way would be to use Visual Studio.<br />
+Or just use the executable and JSON file in the recent release.
 ## Settings
 Insert your username and OAuth token into the ```Settings.json```.
 ```json
@@ -15,7 +16,7 @@ Insert your username and OAuth token into the ```Settings.json```.
 },
 ```
 If ```"Channels"``` is ```null``` the program will automatically use your Chatterino tabs as channels.<br />
-If you only want it to work in specific channels, you can just create an array of channels there, like this:<br />
+If you only want it to work is specific channels, you can just create an array of channels there, like this:<br />
 ```json
 "Channels": [
   "channel1",
