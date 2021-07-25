@@ -22,6 +22,17 @@ namespace ColorChanger.JsonData
             File.WriteAllText(Resources.AppSettingsPath, JsonSerializer.Serialize(AppSettings, new() { WriteIndented = true }));
         }
 
+        public static void ResetSettings()
+        {
+            AppSettings.Account.Username = "";
+            AppSettings.Account.OAuthToken = "";
+            AppSettings.Account.Channels = null;
+            AppSettings.Colors = Resources.DefaultColors.Split().ToList();
+            AppSettings.AutoConnect = false;
+            AppSettings.StartWithWindows = false;
+            SaveSettings();
+        }
+
         private static List<string> GetChannelsFromChatterinoSettings()
         {
             List<string> result = new();
