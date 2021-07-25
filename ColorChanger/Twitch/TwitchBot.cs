@@ -11,9 +11,9 @@ using TwitchLib.Communication.Models;
 
 namespace ColorChanger.Twitch
 {
-    public class ChatClient
+    public class TwitchBot
     {
-        public TwitchClient TwitchClient { get; }
+        public TwitchLib.Client.TwitchClient TwitchClient { get; }
 
         public ConnectionCredentials ConnectionCredentials { get; }
 
@@ -38,7 +38,7 @@ namespace ColorChanger.Twitch
 
         private int _index = 0;
 
-        public ChatClient()
+        public TwitchBot()
         {
             Console.Title = $"Color Changer by Strbhlfe - Connected as {JsonControler.Settings.AccountSettings.Username}";
             ConnectionCredentials = new(JsonControler.Settings.AccountSettings.Username, JsonControler.Settings.AccountSettings.OAuthToken);

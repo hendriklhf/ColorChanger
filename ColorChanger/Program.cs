@@ -7,7 +7,7 @@ namespace ColorChanger
     {
         private static void Main()
         {
-            _ = new ChatClient();
+            _ = new TwitchBot();
             while (true)
             {
                 Console.ReadLine();
