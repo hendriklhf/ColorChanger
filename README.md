@@ -4,7 +4,7 @@ This program will change your Twitch chat color to another one after each messag
 # Usage
 
 ## Build and execution
-You can build the project with, for example, Visual Studio 2019.
+You can build the project with, for example, Visual Studio 2019.<br />
 After that you will find a .exe and a .json in the build path.
 
 ## Settings
