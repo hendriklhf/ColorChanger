@@ -16,7 +16,7 @@ Insert your username and OAuth token into the ```Settings.json```.
 },
 ```
 If ```"Channels"``` is ```null``` the program will automatically use your Chatterino tabs as channels.<br />
-If you only want it to work is specific channels, you can just create an array of channels there, like this:<br />
+If you only want it to work in specific channels, you can just create an array of channels there, like this:<br />
 ```json
 "Channels": [
   "channel1",
