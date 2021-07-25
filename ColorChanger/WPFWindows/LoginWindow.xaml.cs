@@ -1,6 +1,6 @@
 ﻿using ColorChanger.JsonData;
+using HLE.Strings;
 using System;
-using System.Text.RegularExpressions;
 using System.Windows;
 
 namespace ColorChanger.WPFWindows
@@ -14,9 +14,9 @@ namespace ColorChanger.WPFWindows
 
         private void btnLogIn_Click(object sender, RoutedEventArgs e)
         {
-            if (Regex.IsMatch(tbUsername.Text.Trim(), @"^\w+$"))
+            if (tbUsername.Text.IsMatch(@"^\w{3,}$"))
             {
-                if (Regex.IsMatch(tbToken.Text.Trim(), @"^oauth:\w{30}$", RegexOptions.IgnoreCase))
+                if (tbToken.Text.Trim().IsMatch(@"^oauth:\w{30}$"))
                 {
                     JsonController.AppSettings.Account.Username = tbUsername.Text.Trim().ToLower();
                     JsonController.AppSettings.Account.OAuthToken = tbToken.Text.Trim().ToLower();
