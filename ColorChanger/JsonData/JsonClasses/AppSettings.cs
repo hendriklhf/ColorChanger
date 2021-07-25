@@ -6,7 +6,7 @@ namespace ColorChanger.JsonData.JsonClasses
     {
         public bool AutoConnect { get; set; }
 
-        public bool StartWithWindwos { get; set; }
+        public bool StartWithWindows { get; set; }
 
         public Account Account { get; set; }
 

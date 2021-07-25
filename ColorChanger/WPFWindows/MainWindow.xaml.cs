@@ -21,7 +21,16 @@ namespace ColorChanger.WPFWindows
         {
             if (string.IsNullOrEmpty(JsonController.AppSettings.Account.Username) || string.IsNullOrEmpty(JsonController.AppSettings.Account.OAuthToken))
             {
-                _ = new LoginWindow().ShowDialog();
+                if (new LoginWindow().ShowDialog() != true)
+                {
+                    Environment.Exit(0);
+                }
+            }
+            if (JsonController.AppSettings.Account.Channels == null
+                || JsonController.AppSettings.Account.Channels.Count == 0
+                || (JsonController.AppSettings.Account.Channels.Count == 1 && JsonController.AppSettings.Account.Channels[0] == JsonController.AppSettings.Account.Username))
+            {
+
             }
             _chatClient = new();
         }

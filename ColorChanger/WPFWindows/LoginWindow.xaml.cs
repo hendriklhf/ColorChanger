@@ -26,12 +26,12 @@ namespace ColorChanger.WPFWindows
                 }
                 else
                 {
-                    _ = MessageBox.Show("The given token is invalid, please try another!", "Invalid OAuth token", MessageBoxButton.OK, MessageBoxImage.Error);
+                    _ = MessageBox.Show("The given token is invalid, please try again!", "Invalid OAuth token", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
             {
-                _ = MessageBox.Show("The given username is invalid, please try another!", "Invalid username", MessageBoxButton.OK, MessageBoxImage.Error);
+                _ = MessageBox.Show("The given username is invalid, please try again!", "Invalid username", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
