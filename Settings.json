@@ -1,9 +1,7 @@
 {
-  "AccountSettings": {
-    "Username": "",
-    "OAuthToken": "",
-    "Channels": null
-  },
+  "Username": "",
+  "OAuthToken": "",
+  "Channels": [],
   "Colors": [
     "#FF0000",
     "#FF005A",

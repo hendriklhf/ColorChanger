@@ -1,29 +1,45 @@
 # ColorChanger
 This program will change your Twitch chat color to another one after each message you send.
+## How to use
+- You will need to have go installed. You can get it here: [go.dev](https://go.dev/dl)
+- Execute the following:
 
-# Usage
-
-## Build and execution
-You can build the project with, for example, Visual Studio 2019.<br />
-After that you will find a .exe and a .json in the build path.
-
-## Settings
-Insert your username and OAuth token into the ```Settings.json```.
-```json
-"AccountSettings": {
-  "Username": "",
-  "OAuthToken": "",
-  "Channels": null
-},
+```shell
+git clone https://github.com/Sterbehilfe/ColorChanger.git
+cd ColorChanger/
+./build.sh
 ```
-If ```"Channels"``` is ```null``` the program will automatically use your Chatterino tabs as channels.<br />
-If you only want it to work is specific channels, you can just create an array of channels there, like this:<br />
+- You can now find an executable and a JSON file ion the "Build" folder.
+- Now insert your Twitch username and your OAuth token into it and define the channels you would like this to work in. You can use the predefined colors or define your own colors.
+  Which should look like the following:
+
 ```json
-"Channels": [
-  "channel1",
-  "channel2"
-]
+{
+  "Username": "strbhlfe",
+  "OAuthToken": "oauth:abcdefghijklmnopqr0123456789",
+  "Channels": [
+    "strbhlfe",
+    "okayegteatime"
+  ],
+  "Colors": [
+    "#FF0000",
+    "#FF005A",
+    "#FF00B4",
+    "#F000FF",
+    "#9600FF",
+    "#3C00FF",
+    "#001EFF",
+    "#0078FF",
+    "#00CDFF",
+    "#00FFD7",
+    "#00FF7D",
+    "#00FF23",
+    "#37FF00",
+    "#91FF00",
+    "#EBFF00",
+    "#FFBE00",
+    "#FF6400",
+    "#FF0F00"
+  ]
+}
 ```
-You can also change the color array in the settings to your custom colors.
-## Issues
-If no console output shows, just restart the program.
