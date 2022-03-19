@@ -26,7 +26,7 @@ func NewClient(s settings.Settings) *Client {
 func (client *Client) Initialize() {
 	client.ircClient.OnPrivateMessage(func(msg irc.PrivateMessage) {
 		if msg.User.Name == client.settings.Username {
-			client.ChangeColor()
+			client.changeColor()
 		}
 	})
 
@@ -49,10 +49,11 @@ func (client *Client) joinChannels() {
 	}
 }
 
-func (client *Client) ChangeColor() {
+func (client *Client) changeColor() {
 	color := client.settings.Colors[client.colorIdx]
 	client.ircClient.Say(client.settings.Channels[0], ".color "+color)
 	fmt.Println("Changed color to", color)
+
 	client.colorIdx++
 	if client.colorIdx >= len(client.settings.Colors) {
 		client.colorIdx = 0

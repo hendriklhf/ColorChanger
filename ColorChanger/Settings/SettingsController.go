@@ -7,11 +7,11 @@ import (
 	"regexp"
 	"strings"
 
-	linq "github.com/ahmetb/go-linq"
+	"github.com/ahmetb/go-linq"
 )
 
 const (
-	Path = "./Settings.json"
+	PATH = "./Settings.json"
 )
 
 var (
@@ -19,15 +19,17 @@ var (
 )
 
 func LoadSettings() Settings {
-	content, err := os.ReadFile(Path)
+	content, err := os.ReadFile(PATH)
 	if err != nil {
 		panic(err)
 	}
+
 	var settings Settings
 	err = json.Unmarshal(content, &settings)
 	if err != nil {
 		panic(err)
 	}
+
 	fmt.Println("Loaded settings")
 	VerifyColors(&settings.Colors)
 	settings.Username = strings.ToLower(settings.Username)
@@ -42,6 +44,7 @@ func VerifyColors(colors *[]string) {
 	linq.From(*colors).WhereT(func(c string) bool {
 		return colorPattern.MatchString(c)
 	}).ToSlice(colors)
+
 	for i, c := range *colors {
 		if !strings.HasPrefix(c, "#") {
 			(*colors)[i] = "#" + c
