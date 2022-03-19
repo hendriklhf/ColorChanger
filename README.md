@@ -9,7 +9,7 @@ git clone https://github.com/Sterbehilfe/ColorChanger.git
 cd ColorChanger/
 ./build.sh
 ```
-- You can now find an executable and a JSON file ion the "Build" folder.
+- You can now find an executable and a JSON file in the "Build" folder.
 - Now insert your Twitch username and your OAuth token into it and define the channels you would like this to work in. You can use the predefined colors or define your own colors.
   Which should look like the following:
 
